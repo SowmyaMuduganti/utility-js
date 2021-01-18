@@ -1,13 +1,14 @@
 const filter = (arr,test) => {
     var filteredArray = [];
-    var j=0;
-    for(i=0;i<arr.length;i++){
-        if(test(arr[i])){
-            filteredArray[j] = arr[i];
-            j += 1;
-        }
-    }
+    filterHelper(arr,0,test,filteredArray);
     return filteredArray;
+}
+filterHelper = (arr, index, test, filteredArray) => {
+    if(index==arr.length)
+        return
+    if(test(arr[index]))
+        filteredArray.push(arr[index]);
+    filterHelper(arr, index+1, test, filteredArray);
 }
 filterUpperCase = (character) => {
     return character == character.toUpperCase()

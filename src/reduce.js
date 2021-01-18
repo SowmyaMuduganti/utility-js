@@ -6,9 +6,13 @@ const reduce = (arr,reducer,initialValue) => {
         }
         total = '';
     }
-    for(i=0;i<arr.length;i++){
-        total = reducer(total,arr[i]);
+    return reduceHelper(arr,0,reducer,total);
+}
+reduceHelper = (arr, index, reducer, total) => {
+    if(index==arr.length){
+        return total;
     }
-    return total;
+    total = reducer(total,arr[index]);
+    return reduceHelper(arr,index+1, reducer, total);
 }
 module.exports = reduce;
