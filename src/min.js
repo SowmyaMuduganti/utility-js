@@ -1,10 +1,6 @@
+const reduce = require('./reduce');
+
 const min = (arr) => {
-    var minOfArr = arr[0];
-    for(i=1;i<arr.length;i++){
-        if(arr[i]<minOfArr){
-            minOfArr = arr[i];
-        }
-    }
-    return minOfArr;
+    return reduce(arr,(x,y) => x<y?x:y,Number.MAX_VALUE);
 }
 module.exports = min;

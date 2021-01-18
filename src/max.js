@@ -1,10 +1,7 @@
+const reduce = require('./reduce');
+
 const max = (arr) => {
-    var maxOfArr = 0;
-    for(i=0;i<arr.length;i++){
-        if(arr[i]>maxOfArr){
-            maxOfArr = arr[i];
-        }
-    }
-    return maxOfArr;
+    return reduce(arr,(x,y) => x>y?x:y,0);
 }
+
 module.exports = max;
